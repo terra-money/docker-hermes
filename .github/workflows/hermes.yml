@@ -64,6 +64,7 @@ jobs:
             ghcr.io/${{ github.repository }}
             ${{ env.ECR_REGISTRY }}/hermes
           tags: |
+            type=sha
             type=semver,pattern={{version}}
 
       - name: Build docker image
