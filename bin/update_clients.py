@@ -1,8 +1,9 @@
 #! /usr/bin/env python3
 
-import toml, json, subprocess
+import toml, json, subprocess, sys
+from datetime import datetime, time
 
-HERMES = "hermes"
+HERMES = "/usr/local/bin/hermes"
 HERMES_CONFIG = "/hermes/config.toml"
 
 
@@ -75,9 +76,40 @@ def update_clients():
         result = output["result"]
 
         if output["status"] == "success":
-            print(f"Success: {client_id} ({chain_id})")
+            write_stderr(f"Success: {client_id} ({chain_id})\n")
         else:
-            print(f"Failed: {result}")
+            write_stderr(f"Failed: {result}\n")
 
 
-update_clients()
+def is_update_time():
+    current_time = datetime.utcnow().time()
+
+    update_start_time = time(0, 0)
+    update_end_time = time(1, 0)
+
+    return update_start_time <= current_time < update_end_time
+
+
+def write_stdout(s):
+    sys.stdout.write(s)
+    sys.stdout.flush()
+
+
+def write_stderr(s):
+    sys.stderr.write(s)
+    sys.stderr.flush()
+
+
+def main():
+    while True:
+        write_stdout("READY\n")
+        sys.stdin.readline()
+
+        if is_update_time():
+            update_clients()
+
+        write_stdout("RESULT 2\nOK")
+
+
+if __name__ == "__main__":
+    main()
