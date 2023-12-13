@@ -3,11 +3,13 @@ ARG BASE_IMAGE="binhex/arch-base"
 
 FROM --platform=${BUILDPLATFORM} ${BASE_IMAGE}
 
-ARG HERMES_VERSION="v1.7.0"
+ARG HERMES_VERSION="v1.7.3"
 
 COPY ./etc /etc/
+COPY ./bin /usr/local/bin/
 
 RUN set -eux && \
+    pacman -Syyu --noconfirm python-toml && \
     curl -sSL https://github.com/informalsystems/hermes/releases/download/${HERMES_VERSION}/hermes-${HERMES_VERSION}-x86_64-unknown-linux-gnu.tar.gz | \
     tar -xz -C /usr/local/bin && \
     chmod +x /usr/local/bin/* && \
