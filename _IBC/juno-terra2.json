@@ -1,0 +1,47 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "juno",
+    "client_id": "07-tendermint-185",
+    "connection_id": "connection-128"
+  },
+  "chain_2": {
+    "chain_name": "terra2",
+    "client_id": "07-tendermint-3",
+    "connection_id": "connection-6"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-86",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-2",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-463",
+        "port_id": "wasm.juno1kc0lcysppht7s8xl263q208u2t7epw5h3zvhyscsxjlz560yysmsrd8ydt"
+      },
+      "chain_2": {
+        "channel_id": "channel-326",
+        "port_id": "wasm.terra1ed3qw4y4ca3lpj82ugg2jqsjr9czd0yyldcpp5n5yd7hu6udqafslz0nmg"
+      },
+      "ordering": "unordered",
+      "version": "ics721-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    }
+  ]
+}

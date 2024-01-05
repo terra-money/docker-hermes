@@ -1,0 +1,47 @@
+{
+  "$schema": "../ibc_data.schema.json",
+  "chain_1": {
+    "chain_name": "stargaze",
+    "client_id": "07-tendermint-337",
+    "connection_id": "connection-275"
+  },
+  "chain_2": {
+    "chain_name": "terra2",
+    "client_id": "07-tendermint-405",
+    "connection_id": "connection-408"
+  },
+  "channels": [
+    {
+      "chain_1": {
+        "channel_id": "channel-266",
+        "port_id": "transfer"
+      },
+      "chain_2": {
+        "channel_id": "channel-324",
+        "port_id": "transfer"
+      },
+      "ordering": "unordered",
+      "version": "ics20-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    },
+    {
+      "chain_1": {
+        "channel_id": "channel-252",
+        "port_id": "wasm.stars1r0a8ygvnjfaegy4n5z9325e0ew9uy2s7rn4vt7qf4ltv49fj4tnsk6pvtv"
+      },
+      "chain_2": {
+        "channel_id": "channel-317",
+        "port_id": "wasm.terra1ed3qw4y4ca3lpj82ugg2jqsjr9czd0yyldcpp5n5yd7hu6udqafslz0nmg"
+      },
+      "ordering": "unordered",
+      "version": "ics721-1",
+      "tags": {
+        "status": "live",
+        "preferred": true
+      }
+    }
+  ]
+}
