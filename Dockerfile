@@ -3,7 +3,7 @@ ARG BASE_IMAGE="binhex/arch-base"
 
 FROM --platform=${BUILDPLATFORM} ${BASE_IMAGE}
 
-ARG HERMES_VERSION="v1.7.3"
+ARG HERMES_VERSION="v1.7.4"
 
 COPY ./etc /etc/
 COPY ./bin /usr/local/bin/
